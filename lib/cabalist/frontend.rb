@@ -11,7 +11,10 @@ module Cabalist
   class Frontend < Sinatra::Base
     use Rack::MethodOverride
 
-    set :public_folder "#{File.dirname(__FILE__))}/public"
+    #set :public_folder "#{File.dirname(__FILE__))}/public"
+
+    set :public "#{File.dirname(__FILE__))}/public"
+    set :views "#{File.dirname(__FILE__))}/views"
 
     # Specifies how many records of a given class should be visible on a web
     # GUI page.
