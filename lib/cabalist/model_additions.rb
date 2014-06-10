@@ -380,8 +380,9 @@ module Cabalist
       define_singleton_method(
         :not_classified,
         lambda {
-          where("autoclassified_at IS NULL AND %s IS NULL" %
-          options[:class_variable])
+          where("autoclassified_at IS NULL AND %s IS NULL",
+          options[:class_variable],
+          options[:filter].present? ? "AND (#{options[:filter]})": '')
         }
       )
 
